@@ -3,7 +3,7 @@ kind:  Application
 metadata:  
   name:  go-gokit-gorilla-restsvc
   namespace:  argocd
-  environment: nonprod
+  environment: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations: {}
@@ -19,7 +19,7 @@ spec:
         - "values.yaml"
   destination:  
     server:  https://kubernetes.default.svc
-    namespace: nonprod
+    namespace: default
   syncPolicy:
     automated:
       selfHeal: false
