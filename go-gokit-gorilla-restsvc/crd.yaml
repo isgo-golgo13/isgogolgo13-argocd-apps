@@ -1,7 +1,7 @@
 apiVersion:  argoproj.io/v1alpha1
 kind:  Application
 metadata:  
-  name:  go-gokit-gorilla-restsvc 
+  name:  go-gokit-gorilla-restsvc
   namespace:  argocd
   environment: nonprod
   finalizers:
