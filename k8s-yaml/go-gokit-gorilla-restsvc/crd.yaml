@@ -1,0 +1,26 @@
+apiVersion:  argoproj.io/v1alpha1
+kind:  Application
+metadata:  
+  name:  go-gokit-gorilla-restsvc 
+  namespace:  argocd
+  environment: nonprod
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations: {}
+spec:  
+  project:  default
+  source:  
+    repoURL: https://github.com/isgo-golgo13/go-gokit-gorilla-restsvc-k8s.git
+    targetRevision:  HEAD
+    path: k8s/k8s-helm/gokit-gorilla-restsvc-chart
+    helm:
+      releaseName: go-gokit-gorilla-restsvc
+      valueFiles:
+        - "values.yaml"
+  destination:  
+    server:  https://kubernetes.default.svc
+    namespace: nonprod
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: false
