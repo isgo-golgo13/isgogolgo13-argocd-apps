@@ -37,6 +37,9 @@ In order to access the server UI you have the following options:
       - Add the `--insecure` flag to `server.extraArgs` in the values file and terminate SSL at your ingress: https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/ingress.md#option-2-multiple-ingress-objects-and-hosts
 ```
 
+
+`5.` Check the ArgoCD UI in browser at `http://localhost:8080`
+
 ### Deploy the ArgoCD App for 'go-gokit-gorilla-restsvc' 
 
 To deploy the app ensure you are in default namespace.
@@ -50,4 +53,3 @@ Now deploy the app to ArgoCD
 kubectl apply -f go-gokit-gorilla-restsvc/crd.yaml
 ```
 
-`5.` Check the ArgoCD UI in browser at `http://localhost:8080`
