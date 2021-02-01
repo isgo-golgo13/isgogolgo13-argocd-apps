@@ -35,6 +35,12 @@ helm repo update
 helm install argo-cd argo/argo-cd --version 2.11.6
 ```
 
+`4(a).` (Alternative) Install ArgoCD using K8s YAML `install.yaml`
+```
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+
 `5`. Have the ArgoCD UI Dash Access 
 ```
 In order to access the server UI you have the following options:
