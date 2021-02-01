@@ -12,19 +12,25 @@ Creates a 3 Server Node/3 Worker/Agent Node Cluster
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" --k3s-server-arg "--disable=metrics-server" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 3 --verbose
 ```
 
-`2.` Have active K8s cluster pre-defined namespace 'argocd'
+`2.` Install Traefik Ingress Controller V2 Helm Chart 
+```
+helm repo add traefik https://containous.github.io/traefik-helm-chart
+helm install traefik traefik/traefik
+```
+
+`3.` Have active K8s cluster pre-defined namespace 'argocd'
 
 ```
 kubectl create namespace argocd
 ```
 
-`3.` Have active K8s cluster pre-deployed argocd (helm chart) install
+`4.` Have active K8s cluster pre-deployed argocd (helm chart) install
 ```
 helm repo update
 helm install argo-cd argo/argo-cd --version 2.11.6
 ```
 
-`4`. Have the ArgoCD UI Dash Access 
+`5`. Have the ArgoCD UI Dash Access 
 ```
 In order to access the server UI you have the following options:
 
@@ -42,7 +48,7 @@ In order to access the server UI you have the following options:
 ```
 
 
-`5.` Check the ArgoCD UI in browser at `http://localhost:8080`
+`6.` Check the ArgoCD UI in browser at `http://localhost:8080`
 
 ### Deploy the ArgoCD App for 'go-gokit-gorilla-restsvc' 
 
