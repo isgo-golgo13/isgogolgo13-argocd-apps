@@ -16,6 +16,11 @@ k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --
 ```
 helm repo add traefik https://containous.github.io/traefik-helm-chart
 helm install traefik traefik/traefik
+
+# Check Traefik Ingress Controller/Load Balancer is Running
+kubectl port-forward $(kubectl get pods --selector "app.kubernetes.io/name=traefik" --output=name) 9000:9000
+
+Go to http://localhost:9000/Dashboard/
 ```
 
 `3.` Have active K8s cluster pre-defined namespace 'argocd'
