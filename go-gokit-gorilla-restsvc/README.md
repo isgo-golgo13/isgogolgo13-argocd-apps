@@ -75,6 +75,6 @@ If not do:
 kubens default
 
 Now deploy the app to ArgoCD
-kubectl apply -f go-gokit-gorilla-restsvc/crd.yaml
+kubectl apply -f go-gokit-gorilla-restsvc/app.yaml
 ```
 
