@@ -4,12 +4,14 @@
 
 `1.` Have active K8s cluster (k3d, ko, KIND, ...) 
 
-This creates a 3 Server Node/3 Worker/Agent Node Cluster
+This creates a 3 Server Node/3 Worker/Agent Node Cluster.
 
 ```
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" --k3s-server-arg "--disable=metrics-server" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 3 --verbose
 ```
-or for a 1 Server Node/3 Worker/Agent Node Cluster
+**or** 
+
+For a 1 Server Node/3 Worker/Agent Node Cluster.
 
 ```
 k3d cluster create go-gokit-gorilla-restsvc-cluster --api-port 127.0.0.1:6443 --k3s-server-arg "--disable=traefik" --k3s-server-arg "--disable=metrics-server" -p 80:80@loadbalancer -p 443:443@loadbalancer --agents 3 --servers 1 --verbose
