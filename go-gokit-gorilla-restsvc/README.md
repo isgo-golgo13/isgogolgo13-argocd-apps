@@ -38,7 +38,7 @@ kubectl create namespace argocd
 `4.` Have active K8s cluster pre-deployed argocd (helm chart) install
 ```
 helm repo update
-helm install argo-cd argo/argo-cd --version 2.11.6
+helm install argo-cd argo/argo-cd -n argocd --version 2.11.6
 ```
 
 `4(a).` (Alternative) Install ArgoCD using K8s YAML `install.yaml`
@@ -51,7 +51,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 In order to access the server UI you have the following options:
 
-1. kubectl port-forward service/argo-cd-argocd-server -n default 8080:443
+1. kubectl port-forward service/argo-cd-argocd-server -n argocd 8080:443
 
     and then open the browser on http://localhost:8080 and accept the certificate
 
@@ -61,7 +61,7 @@ In order to access the server UI you have the following options:
 
     After reaching the UI the first time you can login with username: admin and the password will be the name of the server pod. You can get the pod name by running:
 
-    kubectl get pods -n default -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+    kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 ```
 
 
