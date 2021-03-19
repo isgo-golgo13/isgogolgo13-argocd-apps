@@ -3,7 +3,6 @@ kind:  Application
 metadata:  
   name:  go-gokit-gorilla-restsvc
   namespace:  argocd
-  environment: default
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations: {}
